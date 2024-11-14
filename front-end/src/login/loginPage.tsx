@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const emailRegEx =
@@ -7,6 +8,7 @@ const emailRegEx =
 const passwordRegEx = /^[A-Za-z0-9]{8,20}$/;
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [pwd, setPwd] = useState<string>("");
   const [btnState, setBtnState] = useState<boolean>(false);
@@ -23,12 +25,16 @@ const LoginPage = () => {
         password: pwd,
       })
       .then((result) => {
-        console.log(result);
-        toast.info("로그인");
+        localStorage.setItem("token", result.data.token);
+        toast.info(result.data.message);
       })
       .catch((err) => {
         toast.warn(err.response.data.details);
       });
+  };
+
+  const moveToSignUp = () => {
+    navigate("/signUp");
   };
 
   return (
@@ -60,7 +66,7 @@ const LoginPage = () => {
         className="btn"
         type="button"
         value="회원가입"
-        onClick={() => console.log("회원가입")}
+        onClick={moveToSignUp}
       />
     </div>
   );
