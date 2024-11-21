@@ -1,0 +1,41 @@
+.login_box {
+  width: 500px;
+  height: 300px;
+  padding: 50px;
+  justify-items: center;
+  align-content: center;
+}
+
+.login_box .input_box {
+  width: 300px;
+  height: 50px;
+  border: 1px solid #bebcbc;
+  border-radius: 30px;
+  display: block;
+  margin: 10px;
+  padding: 5px 20px;
+}
+
+.todo_list_box {
+  min-height: 500px;
+}
+
+.todo_box {
+  text-align: left;
+  display: grid;
+  width: 400px;
+  padding: 10px 0;
+  border-bottom: 1px solid #a4a1a1;
+}
+
+.todo_box:first-of-type {
+  border-top: 1px solid #a4a1a1;
+}
+
+.todo_title {
+  font-size: 20px;
+}
+
+.todo_content {
+  font-size: 14px;
+}

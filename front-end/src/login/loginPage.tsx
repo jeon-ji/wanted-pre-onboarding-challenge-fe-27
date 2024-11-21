@@ -27,6 +27,7 @@ const LoginPage = () => {
       .then((result) => {
         localStorage.setItem("token", result.data.token);
         toast.info(result.data.message);
+        navigate("/todo");
       })
       .catch((err) => {
         toast.warn(err.response.data.details);
