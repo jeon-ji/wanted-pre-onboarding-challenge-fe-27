@@ -16,26 +16,41 @@
   padding: 5px 20px;
 }
 
-.todo_list_box {
-  min-height: 500px;
+.todo_contents {
+  display: inline-flex;
+  gap: 20px;
 }
 
-.todo_box {
+.todo_list_box {
+  min-height: 500px;
+  padding: 10px;
+  border: 1px solid blue;
+  border-radius: 10px;
+}
+
+.todo {
   text-align: left;
   display: grid;
   width: 400px;
   padding: 10px 0;
   border-bottom: 1px solid #a4a1a1;
+  cursor: pointer;
 }
 
-.todo_box:first-of-type {
+.todo:first-of-type {
   border-top: 1px solid #a4a1a1;
 }
 
-.todo_title {
-  font-size: 20px;
+.todo_detail_box {
+  min-height: 500px;
+  padding: 10px;
+  border: 1px solid blue;
+  border-radius: 10px;
 }
 
-.todo_content {
-  font-size: 14px;
+.detail_box {
+  text-align: left;
+  display: grid;
+  width: 400px;
+  padding: 10px 0;
 }
