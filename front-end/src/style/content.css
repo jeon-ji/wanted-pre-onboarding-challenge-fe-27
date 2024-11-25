@@ -16,13 +16,13 @@
   padding: 5px 20px;
 }
 
-.todo_contents {
+.center_contents {
   display: inline-flex;
   gap: 20px;
 }
 
 .todo_list_box {
-  min-height: 500px;
+  height: 500px;
   padding: 10px;
   border: 1px solid blue;
   border-radius: 10px;
@@ -42,10 +42,11 @@
 }
 
 .todo_detail_box {
-  min-height: 500px;
+  height: 500px;
   padding: 10px;
   border: 1px solid blue;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .detail_box {
@@ -53,4 +54,34 @@
   display: grid;
   width: 400px;
   padding: 10px 0;
+}
+
+.todo_regist_box {
+  height: 500px;
+  padding: 10px;
+  border: 1px solid blue;
+  border-radius: 10px;
+}
+
+.con_box {
+  margin: 5px 0;
+}
+
+.con_box label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.con_box input[type="text"] {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #bebcbc;
+  border-radius: 30px;
+  padding: 5px 20px;
+}
+
+.regist_btn {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
 }

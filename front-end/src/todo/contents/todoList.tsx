@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 type ListPropsType = {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   setSelectId: Function;
+  list: TodoDataType[];
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+  setList: Function;
 };
 
 type TodoDataType = {
@@ -15,9 +18,7 @@ type TodoDataType = {
   updatedAt: string;
 };
 
-const TodoList = ({ setSelectId }: ListPropsType) => {
-  const [list, setList] = useState<TodoDataType[]>([]);
-
+const TodoList = ({ setSelectId, list, setList }: ListPropsType) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
