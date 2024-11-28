@@ -16,6 +16,13 @@
   padding: 5px 20px;
 }
 
+.logout_btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
 .center_contents {
   display: inline-flex;
   gap: 20px;

@@ -26,20 +26,30 @@ const TodoPage = () => {
     }
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
-    <div className="todo_page">
-      <h1>Todo Page</h1>
-      <div className="center_contents">
-        <TodoRegist setList={setList} />
-        <TodoList setSelectId={setSelectId} list={list} setList={setList} />
-        <TodoDetail
-          selectId={selectId}
-          setSelectId={setSelectId}
-          list={list}
-          setList={setList}
-        />
+    <>
+      <label className="logout_btn" onClick={logout}>
+        로그아웃
+      </label>
+      <div className="todo_page">
+        <h1>Todo Page</h1>
+        <div className="center_contents">
+          <TodoRegist setList={setList} />
+          <TodoList setSelectId={setSelectId} list={list} setList={setList} />
+          <TodoDetail
+            selectId={selectId}
+            setSelectId={setSelectId}
+            list={list}
+            setList={setList}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
