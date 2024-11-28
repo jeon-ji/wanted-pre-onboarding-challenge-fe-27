@@ -54,6 +54,42 @@ const TodoDetail = ({
     }
   }, [selectId]);
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [e.target.id]: e.target.value });
+  };
+
+  const editTodo = () => {
+    if (data.title === "") return toast.warn("제목을 입력해주세요.");
+    if (data.content === "") return toast.warn("내용을 입력해주세요.");
+
+    const token = localStorage.getItem("token");
+    axios
+      .put(
+        `http://localhost:8080/todos/${selectId}`,
+        {
+          title: data.title,
+          content: data.content,
+        },
+        {
+          headers: { Authorization: `${token}` },
+        }
+      )
+      .then((result) => {
+        const resultData = result.data.data;
+        const changeList = list.map((li) => {
+          if (li.id === selectId) li = resultData;
+          return li;
+        });
+        setData(resultData);
+        setList(changeList);
+        setEditMode(false);
+        toast.info("TODO 데이터가 수정되었습니다.");
+      })
+      .catch(() => {
+        toast.warn("TODO 데이터 수정에 실패하였습니다.");
+      });
+  };
+
   const deleteTodo = () => {
     const token = localStorage.getItem("token");
     axios
@@ -69,6 +105,7 @@ const TodoDetail = ({
         if (filterList.length > 0) {
           setSelectId(filterList[0].id);
         }
+        toast.info("TODO 데이터가 삭제되었습니다.");
       })
       .catch(() => {
         toast.warn("TODO 삭제에 실패하였습니다.");
@@ -90,42 +127,39 @@ const TodoDetail = ({
           <label>제목</label>
           <input
             type="text"
+            id="title"
             value={data.title}
             disabled={!editMode}
-            onChange={(e) => console.log(e.target.value)}
+            onChange={onChange}
           />
         </div>
         <div className="con_box">
           <label>내용</label>
           <input
             type="text"
+            id="content"
             value={data.content}
             disabled={!editMode}
-            onChange={(e) => console.log(e.target.value)}
+            onChange={onChange}
           />
         </div>
         <div className="con_box">
           <label>생성일</label>
-          <input
-            type="text"
-            value={data.createdAt}
-            disabled={!editMode}
-            onChange={(e) => console.log(e.target.value)}
-          />
+          <input type="text" value={data.createdAt} disabled />
         </div>
         <div className="con_box">
           <label>수정일</label>
-          <input
-            type="text"
-            value={data.updatedAt}
-            disabled={!editMode}
-            onChange={(e) => console.log(e.target.value)}
-          />
+          <input type="text" value={data.updatedAt} disabled />
         </div>
       </div>
       {editMode && (
         <div className="btn_container">
-          <input type="button" className="todo_btn" value="수정" />
+          <input
+            type="button"
+            className="todo_btn"
+            value="수정"
+            onClick={editTodo}
+          />
           <input
             type="button"
             className="todo_btn"
