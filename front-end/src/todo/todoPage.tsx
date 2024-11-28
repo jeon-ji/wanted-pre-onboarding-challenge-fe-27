@@ -21,7 +21,12 @@ const TodoPage = () => {
       <div className="center_contents">
         <TodoRegist setList={setList} />
         <TodoList setSelectId={setSelectId} list={list} setList={setList} />
-        <TodoDetail selectId={selectId} />
+        <TodoDetail
+          selectId={selectId}
+          setSelectId={setSelectId}
+          list={list}
+          setList={setList}
+        />
       </div>
     </div>
   );

@@ -72,12 +72,14 @@ const TodoRegist = ({ setList }: ListPropsType) => {
           />
         </div>
       </div>
-      <input
-        type="button"
-        className="regist_btn"
-        value="등록"
-        onClick={registData}
-      />
+      <div className="btn_container">
+        <input
+          type="button"
+          className="todo_btn"
+          value="등록"
+          onClick={registData}
+        />
+      </div>
     </div>
   );
 };

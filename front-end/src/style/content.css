@@ -21,6 +21,11 @@
   gap: 20px;
 }
 
+.center_contents h2 {
+  width: 100%;
+  text-align: left;
+}
+
 .todo_list_box {
   height: 500px;
   padding: 10px;
@@ -52,7 +57,7 @@
 .detail_box {
   text-align: left;
   display: grid;
-  width: 400px;
+  width: 310px;
   padding: 10px 0;
 }
 
@@ -70,6 +75,8 @@
 .con_box label {
   font-weight: bold;
   margin-right: 10px;
+  display: inline-block;
+  width: 50px;
 }
 
 .con_box input[type="text"] {
@@ -80,8 +87,30 @@
   padding: 5px 20px;
 }
 
-.regist_btn {
+.btn_container {
   float: right;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.btn_container :not(:last-child) {
+  margin-right: 10px;
+}
+
+.todo_btn {
+  cursor: pointer;
+}
+
+.title_box {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+}
+
+.edit_icon {
+  min-height: 78px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
 }

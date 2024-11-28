@@ -44,7 +44,7 @@ const TodoList = ({ setSelectId, list, setList }: ListPropsType) => {
       <h2>TODO LIST</h2>
       {list.map((li) => {
         return (
-          <div className="todo" onClick={() => setSelectId(li.id)}>
+          <div key={li.id} className="todo" onClick={() => setSelectId(li.id)}>
             <span>{li.title}</span>
             {/* <input type="button" value="a" />
             <input type="button" value="b" /> */}
