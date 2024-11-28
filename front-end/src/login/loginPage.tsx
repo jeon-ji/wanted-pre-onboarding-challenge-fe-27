@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const emailRegEx =
@@ -12,6 +12,11 @@ const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [pwd, setPwd] = useState<string>("");
   const [btnState, setBtnState] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("todo");
+  }, []);
 
   useEffect(() => {
     if (!emailRegEx.test(email) || !passwordRegEx.test(pwd)) setBtnState(false);
