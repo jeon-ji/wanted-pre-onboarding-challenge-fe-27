@@ -11,7 +11,6 @@ import "./style/content.css";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  // 테스트용 주석
   return (
     <>
       <ToastContainer />
