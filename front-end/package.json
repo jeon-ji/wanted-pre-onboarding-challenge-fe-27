@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.13.5",
@@ -29,9 +30,17 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10"
+  },
+  "lint-staged": {
+    "*.js": "npx eslint --fix --config ./front-end/eslint.config.js",
+    "*.jsx": "npx eslint --fix --config ./front-end/eslint.config.js",
+    "*.ts": "npx eslint --fix --config ./front-end/eslint.config.js",
+    "*.tsx": "npx eslint --fix --config ./front-end/eslint.config.js"
   },
   "proxy": "http://localhost:8080"
 }
